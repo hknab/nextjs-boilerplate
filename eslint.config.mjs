@@ -17,7 +17,8 @@ const config = [
     'next/core-web-vitals',
     'eslint:recommended',
     'plugin:@next/next/recommended',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
+    'plugin:storybook/recommended'
   ),
   {
     plugins: {
