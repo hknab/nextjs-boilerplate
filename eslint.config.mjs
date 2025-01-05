@@ -17,10 +17,11 @@ const config = [
   ...compat.extends(
     'next/core-web-vitals',
     'eslint:recommended',
-    'plugin:@next/next/recommended',
     'plugin:prettier/recommended',
     'plugin:storybook/recommended',
-    'plugin:jest/recommended'
+    'plugin:jest/recommended',
+    'next/typescript',
+    'plugin:@next/next/recommended'
   ),
   {
     plugins: {
@@ -32,6 +33,24 @@ const config = [
     files: ['./src/**/*.ts', './src/**/*.tsx', '**/*.d.ts'],
     env: {
       jest: true, // Add Jest environment
+    },
+  },
+  {
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'warn',
+
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          args: 'all',
+          argsIgnorePattern: '^_',
+          caughtErrors: 'all',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        },
+      ],
     },
   },
 ];
